@@ -1,0 +1,93 @@
+{
+  "subscriptions": [
+    {
+      "id": 1,
+      "nama": "Netflix",
+      "kategori": "Film \u0026 TV",
+      "biaya_bulanan": 186000,
+      "metode_pembayaran": "Kartu Kredit",
+      "tanggal_jatuh_tempo": 5,
+      "status": "aktif",
+      "tanggal_mulai": "01-01-2024",
+      "catatan": "Paket Standard"
+    },
+    {
+      "id": 2,
+      "nama": "Spotify Premium",
+      "kategori": "Musik",
+      "biaya_bulanan": 54990,
+      "metode_pembayaran": "GoPay",
+      "tanggal_jatuh_tempo": 10,
+      "status": "aktif",
+      "tanggal_mulai": "01-03-2024",
+      "catatan": "Individual"
+    },
+    {
+      "id": 3,
+      "nama": "Disney+ Hotstar",
+      "kategori": "Film \u0026 TV",
+      "biaya_bulanan": 49000,
+      "metode_pembayaran": "Kartu Debit",
+      "tanggal_jatuh_tempo": 15,
+      "status": "aktif",
+      "tanggal_mulai": "01-06-2024",
+      "catatan": ""
+    },
+    {
+      "id": 4,
+      "nama": "YouTube Premium",
+      "kategori": "Hiburan",
+      "biaya_bulanan": 59000,
+      "metode_pembayaran": "OVO",
+      "tanggal_jatuh_tempo": 20,
+      "status": "aktif",
+      "tanggal_mulai": "01-09-2023",
+      "catatan": ""
+    },
+    {
+      "id": 5,
+      "nama": "Google One",
+      "kategori": "Cloud Storage",
+      "biaya_bulanan": 35000,
+      "metode_pembayaran": "Kartu Kredit",
+      "tanggal_jatuh_tempo": 25,
+      "status": "aktif",
+      "tanggal_mulai": "01-01-2023",
+      "catatan": "100GB"
+    },
+    {
+      "id": 6,
+      "nama": "Canva Pro",
+      "kategori": "Produktivitas",
+      "biaya_bulanan": 120000,
+      "metode_pembayaran": "Kartu Kredit",
+      "tanggal_jatuh_tempo": 8,
+      "status": "aktif",
+      "tanggal_mulai": "01-04-2024",
+      "catatan": ""
+    },
+    {
+      "id": 7,
+      "nama": "Duolingo Plus",
+      "kategori": "Pendidikan",
+      "biaya_bulanan": 89000,
+      "metode_pembayaran": "Dana",
+      "tanggal_jatuh_tempo": 12,
+      "status": "nonaktif",
+      "tanggal_mulai": "01-07-2023",
+      "catatan": "Jarang dipakai"
+    },
+    {
+      "id": 8,
+      "nama": "Xbox Game Pass",
+      "kategori": "Game",
+      "biaya_bulanan": 149000,
+      "metode_pembayaran": "Kartu Kredit",
+      "tanggal_jatuh_tempo": 3,
+      "status": "aktif",
+      "tanggal_mulai": "01-02-2024",
+      "catatan": "Ultimate"
+    }
+  ],
+  "next_id": 9
+}
