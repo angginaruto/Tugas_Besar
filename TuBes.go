@@ -20,8 +20,8 @@ type Subscription struct {
 	Kategori      string    `json:"kategori"`
 	BiayaBulanan  float64   `json:"biaya_bulanan"`
 	MetodePembayaran string `json:"metode_pembayaran"`
-	TanggalJatuhTempo int   `json:"tanggal_jatuh_tempo"` // tanggal dalam bulan (1-31)
-	Status        string    `json:"status"`               // aktif / nonaktif
+	TanggalJatuhTempo int   `json:"tanggal_jatuh_tempo"` 
+	Status        string    `json:"status"`              
 	TanggalMulai  string    `json:"tanggal_mulai"`
 	Catatan       string    `json:"catatan"`
 }
@@ -721,14 +721,12 @@ func tampilkanMenuUtama() {
 
 	now := time.Now()
 
-	// Hitung statistik cepat
 	aktif := getActiveSubscriptions()
 	total := 0.0
 	for _, s := range aktif {
 		total += s.BiayaBulanan
 	}
 
-	// Cek pengingat mendesak
 	urgent := 0
 	for _, s := range aktif {
 		if daysUntilDue(s.TanggalJatuhTempo) <= 3 {
