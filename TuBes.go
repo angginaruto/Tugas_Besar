@@ -245,7 +245,7 @@ func pilihMetodePembayaran() string {
 // ==================== FITUR CRUD ====================
 
 func tambahLangganan() {
-	printHeader("📌 TAMBAH LANGGANAN BARU")
+	printHeader("TAMBAH LANGGANAN BARU")
 	fmt.Println()
 
 	nama := input("  Nama Layanan   : ")
@@ -276,12 +276,12 @@ func tambahLangganan() {
 	db.NextID++
 	saveDatabase()
 
-	fmt.Println(Green + "\n  ✅ Langganan berhasil ditambahkan!" + Reset)
+	fmt.Println(Green + "\n  Langganan berhasil ditambahkan!" + Reset)
 	tekanEnterLanjut()
 }
 
 func lihatSemuaLangganan() {
-	printHeader("📋 DAFTAR SEMUA LANGGANAN")
+	printHeader("DAFTAR SEMUA LANGGANAN")
 	printSubscriptionTable(db.Subscriptions)
 
 	// Hitung total aktif
@@ -296,7 +296,7 @@ func lihatSemuaLangganan() {
 }
 
 func ubahLangganan() {
-	printHeader("✏️  UBAH LANGGANAN")
+	printHeader("UBAH LANGGANAN")
 	printSubscriptionTable(db.Subscriptions)
 
 	if len(db.Subscriptions) == 0 {
@@ -371,12 +371,12 @@ func ubahLangganan() {
 	}
 
 	saveDatabase()
-	fmt.Println(Green + "\n  ✅ Langganan berhasil diubah!" + Reset)
+	fmt.Println(Green + "\n  Langganan berhasil diubah!" + Reset)
 	tekanEnterLanjut()
 }
 
 func hapusLangganan() {
-	printHeader("🗑️  HAPUS LANGGANAN")
+	printHeader("HAPUS LANGGANAN")
 	printSubscriptionTable(db.Subscriptions)
 
 	if len(db.Subscriptions) == 0 {
@@ -415,14 +415,14 @@ func hapusLangganan() {
 	db.Subscriptions = newSubs
 	saveDatabase()
 
-	fmt.Println(Green + "\n  ✅ Langganan berhasil dihapus!" + Reset)
+	fmt.Println(Green + "\n  Langganan berhasil dihapus!" + Reset)
 	tekanEnterLanjut()
 }
 
 // ==================== PENGINGAT ====================
 
 func tampilkanPengingat() {
-	printHeader("🔔 PENGINGAT JATUH TEMPO")
+	printHeader("PENGINGAT JATUH TEMPO")
 	fmt.Println()
 
 	aktif := getActiveSubscriptions()
@@ -442,7 +442,7 @@ func tampilkanPengingat() {
 		var color string
 
 		if days == 0 {
-			ket = "⚠️  HARI INI!"
+			ket = "HARI INI!"
 			color = Red + Bold
 		} else if days <= 3 {
 			ket = fmt.Sprintf("🔴 %d hari lagi", days)
@@ -468,7 +468,7 @@ func tampilkanPengingat() {
 	}
 
 	if !ada {
-		fmt.Println("\n  " + Green + "✅ Tidak ada jatuh tempo dalam 7 hari ke depan." + Reset)
+		fmt.Println("\n  " + Green + "Tidak ada jatuh tempo dalam 7 hari ke depan." + Reset)
 	}
 
 	tekanEnterLanjut()
@@ -534,7 +534,7 @@ func binarySearchKategori(kategori string) []Subscription {
 }
 
 func menuPencarian() {
-	printHeader("🔍 PENCARIAN LANGGANAN")
+	printHeader("PENCARIAN LANGGANAN")
 	fmt.Println()
 	fmt.Println("  1. Pencarian berdasarkan Nama (Sequential Search)")
 	fmt.Println("  2. Pencarian berdasarkan Kategori (Binary Search)")
@@ -601,7 +601,7 @@ func insertionSortTanggal(subs []Subscription) []Subscription {
 }
 
 func menuPengurutan() {
-	printHeader("📊 PENGURUTAN LANGGANAN")
+	printHeader("PENGURUTAN LANGGANAN")
 	fmt.Println()
 	fmt.Println("  1. Urutkan berdasarkan Biaya Terbesar (Selection Sort)")
 	fmt.Println("  2. Urutkan berdasarkan Tanggal Jatuh Tempo Terdekat (Insertion Sort)")
@@ -629,7 +629,7 @@ func menuPengurutan() {
 // ==================== LAPORAN & REKOMENDASI ====================
 
 func laporanBulanan() {
-	printHeader("💰 LAPORAN PENGELUARAN BULANAN")
+	printHeader("LAPORAN PENGELUARAN BULANAN")
 	fmt.Println()
 
 	aktif := getActiveSubscriptions()
@@ -673,7 +673,7 @@ func laporanBulanan() {
 	fmt.Printf("  %-20s %s\n", "Total Tahunan (est.)", formatRupiah(totalBulanan*12))
 
 	// Rekomendasi
-	fmt.Printf("\n%s%s  💡 REKOMENDASI PENGHEMATAN  %s\n", Bold, Yellow, Reset)
+	fmt.Printf("\n%s%s  REKOMENDASI PENGHEMATAN  %s\n", Bold, Yellow, Reset)
 	printLine("─", 50)
 
 	// Urutkan aktif berdasarkan biaya (descending) - pakai selection sort
@@ -689,14 +689,14 @@ func laporanBulanan() {
 		persen := (s.BiayaBulanan / totalBulanan) * 100
 		tag := ""
 		if s.BiayaBulanan >= threshold {
-			tag = Red + " ⚠️ Pertimbangkan untuk dievaluasi" + Reset
+			tag = Red + "Pertimbangkan untuk dievaluasi" + Reset
 		}
 		fmt.Printf("  %d. %-20s %s (%.1f%%)%s\n",
 			i+1, s.Nama, formatRupiah(s.BiayaBulanan), persen, tag)
 	}
 
 	if totalBulanan > 500000 {
-		fmt.Printf("\n  %s💡 Total pengeluaran Anda %s/bulan cukup besar.%s\n",
+		fmt.Printf("\n  %sTotal pengeluaran Anda %s/bulan cukup besar.%s\n",
 			Yellow, formatRupiah(totalBulanan), Reset)
 		fmt.Println("  Pertimbangkan untuk:")
 		fmt.Println("   • Berbagi akun (family plan) untuk layanan populer")
@@ -708,7 +708,7 @@ func laporanBulanan() {
 		fmt.Printf("\n  %sPotensial hemat jika hentikan \"%s\": %s/bulan (%s/tahun)%s\n",
 			Green, sorted[0].Nama, formatRupiah(potensialHemat), formatRupiah(potensialHemat*12), Reset)
 	} else {
-		fmt.Println("\n  " + Green + "✅ Pengeluaran langganan Anda masih dalam batas wajar." + Reset)
+		fmt.Println("\n  " + Green + "Pengeluaran langganan Anda masih dalam batas wajar." + Reset)
 	}
 
 	tekanEnterLanjut()
@@ -738,9 +738,9 @@ func tampilkanMenuUtama() {
 	fmt.Printf("%s%s%s  %-54s%s\n", Bold, BgBlue, White, "  💳 SUBSCRIPTION TRACKER", Reset)
 	fmt.Printf("  %-56s\n", "  Kelola Langganan Digital Anda")
 	printLine("═", 60)
-	fmt.Printf("  📅 %s\n", now.Format("Monday, 02 January 2006"))
-	fmt.Printf("  📊 Langganan Aktif  : %s%d layanan%s\n", Bold, len(aktif), Reset)
-	fmt.Printf("  💵 Total/Bulan      : %s%s%s\n", Bold+Green, formatRupiah(total), Reset)
+	fmt.Printf("  %s\n", now.Format("Monday, 02 January 2006"))
+	fmt.Printf("  Langganan Aktif  : %s%d layanan%s\n", Bold, len(aktif), Reset)
+	fmt.Printf("  Total/Bulan      : %s%s%s\n", Bold+Green, formatRupiah(total), Reset)
 	if urgent > 0 {
 		fmt.Printf("  %s⚠️  %d langganan jatuh tempo dalam 3 hari!%s\n", Red+Bold, urgent, Reset)
 	}
@@ -753,10 +753,10 @@ func tampilkanMenuUtama() {
 	fmt.Println("  4. Hapus Langganan")
 	fmt.Println()
 	fmt.Println("  " + Bold + "FITUR LANJUTAN" + Reset)
-	fmt.Println("  5. 🔔 Pengingat Jatuh Tempo")
-	fmt.Println("  6. 🔍 Pencarian (Sequential & Binary Search)")
-	fmt.Println("  7. 📊 Pengurutan (Selection & Insertion Sort)")
-	fmt.Println("  8. 💰 Laporan & Rekomendasi Penghematan")
+	fmt.Println("  5. Pengingat Jatuh Tempo")
+	fmt.Println("  6. Pencarian (Sequential & Binary Search)")
+	fmt.Println("  7. Pengurutan (Selection & Insertion Sort)")
+	fmt.Println("  8. Laporan & Rekomendasi Penghematan")
 	fmt.Println()
 	fmt.Println("  0. Keluar")
 	fmt.Println()
